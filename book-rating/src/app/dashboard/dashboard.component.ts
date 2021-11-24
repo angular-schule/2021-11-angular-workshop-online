@@ -33,6 +33,10 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  trackBook(index: number, item: Book) {
+    return index;
+  }
+
 }
 
 /*
