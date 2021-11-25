@@ -13,9 +13,7 @@ export class BookComponent implements OnInit {
 
   @Input() book?: Book;
 
-  constructor() {
-    console.log('BOOKCOMPONENT');
-  }
+  constructor() {}
 
   ngOnInit(): void {
   }
