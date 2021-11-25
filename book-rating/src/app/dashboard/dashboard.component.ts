@@ -30,8 +30,7 @@ export class DashboardComponent implements OnInit {
     ];
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   trackBook(index: number, item: Book) {
     return index;
@@ -40,7 +39,7 @@ export class DashboardComponent implements OnInit {
 }
 
 /*
-class BookC implements BookI {
+class BookC {
   rating: number = 1;
   constructor(public isbn: string, public title: string) {}
 
