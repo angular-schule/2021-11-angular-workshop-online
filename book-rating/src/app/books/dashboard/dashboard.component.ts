@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Book } from '../shared/book';
 import { BookRatingService } from '../shared/book-rating.service';
+import { BookStoreService } from '../shared/book-store.service';
 
 
 @Component({
@@ -13,25 +14,14 @@ export class DashboardComponent implements OnInit {
   minRating = this.rs.MIN;
   maxRating = this.rs.MAX;
 
-  books: Book[] = [];
+  books: Book[]
 
-  constructor(private rs: BookRatingService) {
-    this.books = [
-      {
-        isbn: '111',
-        title: 'Angular',
-        description: 'Grundlagen und mehr',
-        rating: 5,
-        price: 36.9
-      },
-      {
-        isbn: '222',
-        title: 'Vue.js',
-        description: 'Das grüne Framework',
-        rating: 3,
-        price: 32.9
-      }
-    ];
+  constructor(private rs: BookRatingService, private bs: BookStoreService) {
+    this.books = [];
+
+    this.bs.getAll().subscribe(books => {
+      this.books = books;
+    });
   }
 
   ngOnInit(): void {}
