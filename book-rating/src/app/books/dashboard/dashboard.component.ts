@@ -15,7 +15,7 @@ export class DashboardComponent implements OnInit {
 
   books: Book[] = [];
 
-  constructor(public rs: BookRatingService) {
+  constructor(private rs: BookRatingService) {
     this.books = [
       {
         isbn: '111',
