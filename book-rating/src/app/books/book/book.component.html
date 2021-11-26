@@ -11,7 +11,7 @@
     <p>{{ book.description }}</p>
     <p>Preis: {{ book.price | currency:'EUR' }}</p>
 
-    <button class="btn btn-success mr-2" (click)="onRateUp()"> + </button>
-    <button class="btn btn-danger mr-2" (click)="onRateDown()"> – </button>
+    <button class="btn btn-success mr-2" (click)="onRateUp()" [disabled]="book.rating >= maxRating"> + </button>
+    <button class="btn btn-danger mr-2" (click)="onRateDown()" [disabled]="book.rating <= minRating"> – </button>
   </div>
 </div>

@@ -1,6 +1,8 @@
 <br-book
   *ngFor="let b of books; trackBy: trackBook"
   [book]="b"
+  [minRating]="rs.MIN"
+  [maxRating]="maxRating"
   (rateUp)="onRateUp($event)"
   (rateDown)="onRateDown($event)"></br-book>
 

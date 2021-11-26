@@ -8,10 +8,13 @@ import { Book } from '../shared/book';
 })
 export class BookComponent implements OnInit {
 
+
   @Output() rateUp = new EventEmitter<Book>();
   @Output() rateDown = new EventEmitter<Book>();
 
   @Input() book?: Book;
+  @Input() minRating = 1;
+  @Input() maxRating = 3;
 
   constructor() {}
 
