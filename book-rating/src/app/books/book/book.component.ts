@@ -7,8 +7,6 @@ import { Book } from '../shared/book';
   styleUrls: ['./book.component.scss']
 })
 export class BookComponent implements OnInit {
-
-
   @Output() rateUp = new EventEmitter<Book>();
   @Output() rateDown = new EventEmitter<Book>();
 
