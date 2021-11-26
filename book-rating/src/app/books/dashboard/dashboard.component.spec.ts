@@ -1,3 +1,4 @@
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Book } from '../shared/book';
 import { BookRatingService } from '../shared/book-rating.service';
@@ -18,6 +19,7 @@ describe('DashboardComponent', () => {
 
     await TestBed.configureTestingModule({
       declarations: [ DashboardComponent ],
+      schemas: [NO_ERRORS_SCHEMA], // Shallow Component Test / alle Kindkomponenten ignorieren
       providers: [
         { provide: BookRatingService, useValue: ratingMock }
       ]
