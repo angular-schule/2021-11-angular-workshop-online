@@ -8,7 +8,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 const routes: Routes = [
   { path: '', component: DashboardComponent },
   { path: 'search', component: BookSearchComponent },
-  { path: 'create', component: BookCreateComponent },
+  { path: 'create', component: BookCreateComponent, },
   { path: ':isbn', component: BookDetailsComponent },
 ];
 
