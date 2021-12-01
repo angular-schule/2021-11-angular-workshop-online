@@ -25,6 +25,8 @@ export class CreatingComponent {
     // of('A', 'B', 'C')
     // from([1,2,3,4,5])
     // interval(1000)
+    // timer (1000)
+    // timer (1000, 2000)
 
     timer(2000, 500).pipe(
       map(e => e * 3),
@@ -60,6 +62,7 @@ export class CreatingComponent {
 
       setTimeout(() => {
         o.error('fehler');
+        o.next(2);
       }, 2000);
     }
 
@@ -71,7 +74,9 @@ export class CreatingComponent {
 
     const myObs$ = new Observable(producer);
 
-    // myObs$.subscribe(observer);
+    myObs$.subscribe(observer);
+    myObs$.subscribe();
+    myObs$.subscribe(e => console.log(e));
     // producer(observer);
 
     // so KÖNNTE ein Observable implementiert werden
