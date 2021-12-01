@@ -1,3 +1,13 @@
 <div class="form-group">
   <input [formControl]="searchControl" type="text" class="form-control">
 </div>
+
+<ul>
+  <li *ngFor="let book of books$ | async">{{ book.title }} ({{ book.isbn }})</li>
+</ul>
+
+<!--<ng-container *ngIf="books$ | async as books">
+  <ul>
+    <li *ngFor="let book of books">{{ book.title }}</li>
+  </ul>
+</ng-container>-->
