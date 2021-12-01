@@ -16,7 +16,9 @@ export class BookSearchComponent implements OnInit {
   books$: Observable<Book[]>;
 
   constructor(private bs: BookStoreService) {
-    this.books$ = this.searchControl.valueChanges.pipe(
+    const valueChanges$: Observable<string> = this.searchControl.valueChanges;
+
+    this.books$ = valueChanges$.pipe(
       debounceTime(1000),
       filter(term => term.length >= 3 || term.length === 0),
       switchMap(term => this.bs.search(term))

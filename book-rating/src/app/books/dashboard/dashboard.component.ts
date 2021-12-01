@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { select, Store } from '@ngrx/store';
 import { Book } from '../shared/book';
 import { BookRatingService } from '../shared/book-rating.service';
 import { BookStoreService } from '../shared/book-store.service';
+import { loadBooks } from '../store/book.actions';
+import { selectBooks, selectLoading } from '../store/book.selectors';
 
 
 @Component({
@@ -14,14 +17,22 @@ export class DashboardComponent implements OnInit {
   minRating = this.rs.MIN;
   maxRating = this.rs.MAX;
 
-  books: Book[]
+  books: Book[] = [];
 
-  constructor(private rs: BookRatingService, private bs: BookStoreService) {
-    this.books = [];
+  constructor(private store: Store, private rs: BookRatingService, private bs: BookStoreService) {
 
-    this.bs.getAll().subscribe(books => {
+    this.store.dispatch(loadBooks());
+    // this.store.dispatch({ type: 'HALLO' });
+
+    // sollte immer mit AsyncPipe verwendet werden
+    // this.store.pipe(select(selectBooks))
+    this.store.select(selectBooks).subscribe(books => {
       this.books = books;
     });
+
+    /*this.bs.getAll().subscribe(books => {
+      this.books = books;
+    });*/
   }
 
   ngOnInit(): void {}
